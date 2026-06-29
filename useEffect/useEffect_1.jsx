@@ -1,7 +1,20 @@
-import React from 'react'
+import { useState, useEffect } from "react";
 
-export default function useEffect_1() {
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    document.title = `Count: ${count}`;
+  }, [count]);
+
   return (
-    <div>useEffect_1</div>
-  )
+    <div>
+      <h2>Count: {count}</h2>
+      <button onClick={() => setCount(count + 1)}>
+        Increment
+      </button>
+    </div>
+  );
 }
+
+export default Counter;
